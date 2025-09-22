@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>california app labs</title>
+  <style>
+    :root {
+      /* Number of visible characters in the title (including spaces) */
+      --chars: 19;
+      --duration: 3s;
+    }
+
+    html, body {
+      height: 100%;
+      background: #fff;
+      margin: 0;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+                   Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+                   "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0;
+      /* typewriter effect */
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #000;
+      width: 0;
+      animation:
+        typing var(--duration) steps(var(--chars), end) forwards,
+        caret 0.8s step-end infinite;
+    }
+
+    @keyframes typing {
+      to { width: calc(var(--chars) * 1ch); }
+    }
+
+    @keyframes caret {
+      50% { border-color: transparent; }
+    }
+
+    /* Accessibility: if user prefers reduced motion, show full title instantly */
+    @media (prefers-reduced-motion: reduce) {
+      h1 {
+        animation: none;
+        width: auto;
+        border-right: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>california app labs</h1>
+</body>
+</html>
