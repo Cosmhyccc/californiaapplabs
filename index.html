@@ -12,21 +12,21 @@
       height: 100%;
       background: #000;
       margin: 0;
+      color: red;
+      font-family: 'Nunito', sans-serif;
     }
 
     body {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      font-family: 'Nunito', sans-serif;
       text-align: center;
+      padding: 2rem;
     }
 
     h1 {
-      color: red;
       font-size: clamp(1.5rem, 4vw, 2.5rem);
-      margin-top: 1rem;
+      margin: 1rem 0;
       font-weight: 700;
     }
 
@@ -35,25 +35,31 @@
       height: auto;
     }
 
-    .buttons {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
+    nav {
+      margin-top: 1rem;
     }
 
-    .buttons a {
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      background: red;
-      color: #000;
+    nav button {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 1.2rem;
       font-weight: 700;
-      border-radius: 10px;
-      transition: background 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+      margin: 0 1rem;
+      padding: 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease;
     }
 
-    .buttons a:hover {
-      background: #ff4444;
-      transform: translateY(-2px);
+    nav button:hover,
+    nav button.active {
+      border-color: red;
+    }
+
+    #content {
+      margin-top: 2rem;
+      max-width: 800px;
     }
   </style>
 </head>
@@ -61,10 +67,35 @@
   <img src="calbear.png" alt="California Bear Logo" class="logo">
   <h1>california app labs</h1>
 
-  <div class="buttons">
-    <a href="index.html">Home</a>
-    <a href="lore.html">Lore</a>
-    <a href="portfolio.html">Portfolio</a>
+  <nav>
+    <button class="active" onclick="showPage('home')">Home</button>
+    <button onclick="showPage('lore')">Lore</button>
+    <button onclick="showPage('portfolio')">Portfolio</button>
+  </nav>
+
+  <div id="content">
+    <p>Welcome to California App Labs. This is the home page.</p>
   </div>
+
+  <script>
+    function showPage(page) {
+      const content = document.getElementById('content');
+      const buttons = document.querySelectorAll('nav button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      if (page === 'home') {
+        content.innerHTML = "<p>Welcome to California App Labs. This is the home page.</p>";
+        buttons[0].classList.add('active');
+      }
+      if (page === 'lore') {
+        content.innerHTML = "<p>Once upon a time in California, a small team of dreamers built apps that shaped the future. More placeholder lore text goes here...</p>";
+        buttons[1].classList.add('active');
+      }
+      if (page === 'portfolio') {
+        content.innerHTML = "<p>Here will be a showcase of all the projects and experiments from California App Labs. Placeholder content for now — coming soon.</p>";
+        buttons[2].classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html>
