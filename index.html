@@ -83,10 +83,7 @@
       const buttons = document.querySelectorAll('nav button');
       buttons.forEach(btn => btn.classList.remove('active'));
 
-      if (page === 'home') {
-        content.innerHTML = "<p>Welcome to California App Labs. This is the home page.</p>";
-        buttons[0].classList.add('active');
-      }
+      
       if (page === 'lore') {
         content.innerHTML = "<p>Once upon a time in California, a small team of dreamers built apps that shaped the future. More placeholder lore text goes here...</p>";
         buttons[1].classList.add('active');
