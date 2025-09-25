@@ -79,7 +79,6 @@
   <nav>
     <button class="active" onclick="showPage('home')">Home</button>
     <button onclick="showPage('lore')">Lore</button>
-    <button onclick="showPage('portfolio')">Portfolio</button>
   </nav>
   <div id="content">
     <p>We build apps.</p>
@@ -112,10 +111,6 @@
           <p>—Saif, Founder & CEO.</p>
         `;
         buttons[1].classList.add('active');
-      }
-      if (page === 'portfolio') {
-        content.innerHTML = "<p>We've been moving in stealth, acting mysterious n shit. Portfolio dropping soon.</p>";
-        buttons[2].classList.add('active');
       }
     }
   </script>
